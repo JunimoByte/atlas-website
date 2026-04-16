@@ -8,7 +8,9 @@
   <style>
 /* Atlas — Global Stylesheet */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -29,7 +31,9 @@
   --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--bg);
@@ -46,7 +50,9 @@ body {
 
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -77,7 +83,11 @@ nav {
   letter-spacing: -0.01em;
 }
 
-.nav-logo svg { width: 26px; height: 26px; flex-shrink: 0; }
+.nav-logo svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
 
 .nav-divider {
   width: 0.5px;
@@ -112,7 +122,11 @@ nav {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.nav-links a svg { width: 14px; height: 14px; opacity: 0.7; }
+.nav-links a svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+}
 
 .nav-right {
   display: flex;
@@ -137,9 +151,19 @@ nav {
   letter-spacing: -0.01em;
 }
 
-.btn-download:hover { opacity: 0.88; transform: translateY(-1px); }
-.btn-download:active { transform: translateY(0) scale(0.98); }
-.btn-download svg { width: 14px; height: 14px; }
+.btn-download:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.btn-download:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-download svg {
+  width: 14px;
+  height: 14px;
+}
 
 
 /* HERO */
@@ -175,8 +199,15 @@ nav {
 }
 
 @keyframes gridPulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .orb {
@@ -188,35 +219,57 @@ nav {
 }
 
 .orb-1 {
-  width: 420px; height: 420px;
+  width: 420px;
+  height: 420px;
   background: radial-gradient(circle, rgba(59, 130, 246, 0.18), transparent 70%);
-  top: 5%; left: 20%;
+  top: 5%;
+  left: 20%;
   animation-duration: 20s;
   animation-delay: 0s;
 }
 
 .orb-2 {
-  width: 320px; height: 320px;
+  width: 320px;
+  height: 320px;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.14), transparent 70%);
-  top: 30%; right: 10%;
+  top: 30%;
+  right: 10%;
   animation-duration: 26s;
   animation-delay: -8s;
 }
 
 .orb-3 {
-  width: 280px; height: 280px;
+  width: 280px;
+  height: 280px;
   background: radial-gradient(circle, rgba(20, 184, 166, 0.12), transparent 70%);
-  bottom: 20%; left: 5%;
+  bottom: 20%;
+  left: 5%;
   animation-duration: 32s;
   animation-delay: -14s;
 }
 
 @keyframes orbFloat {
-  0%   { transform: translate(0, 0) scale(1);   opacity: 0; }
-  10%  { opacity: 1; }
-  50%  { transform: translate(30px, -25px) scale(1.05); }
-  90%  { opacity: 1; }
-  100% { transform: translate(0, 0) scale(1);   opacity: 0; }
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(30px, -25px) scale(1.05);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
 }
 
 .badge {
@@ -234,15 +287,23 @@ nav {
 }
 
 .badge-dot {
-  width: 6px; height: 6px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #22c55e;
   animation: blink 2.4s ease-in-out infinite;
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
 .hero h1 {
@@ -295,8 +356,14 @@ nav {
   letter-spacing: -0.01em;
 }
 
-.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
-.btn-primary:active { transform: scale(0.97); }
+.btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
 
 .btn-ghost {
   display: inline-flex;
@@ -322,8 +389,15 @@ nav {
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -338,33 +412,53 @@ nav {
   border-bottom: 0.5px solid var(--border);
   background: var(--bg2);
   margin: 0 0 80px;
+  contain: layout style;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 73px;
 }
 
 .ticker-wrap::before,
 .ticker-wrap::after {
   content: '';
   position: absolute;
-  top: 0; bottom: 0;
+  top: 0;
+  bottom: 0;
   width: 120px;
   z-index: 2;
   pointer-events: none;
 }
 
-.ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--bg2), transparent); }
-.ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--bg2), transparent); }
+.ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg2), transparent);
+}
+
+.ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg2), transparent);
+}
 
 .ticker {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: ticker 38s linear infinite;
+  animation: ticker 58s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
-.ticker:hover { animation-play-state: paused; }
+.ticker:hover {
+  animation-play-state: paused;
+}
 
 @keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .ticker-item {
@@ -379,10 +473,13 @@ nav {
   border-right: 0.5px solid var(--border);
 }
 
-.ticker-item:last-child { border-right: none; }
+.ticker-item:last-child {
+  border-right: none;
+}
 
 .ticker-dot {
-  width: 5px; height: 5px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--muted);
   opacity: 0.5;
@@ -453,11 +550,17 @@ section {
   transition: opacity 0.3s;
 }
 
-.feature-card:hover { background: var(--bg3); }
-.feature-card:hover::before { opacity: 1; }
+.feature-card:hover {
+  background: var(--bg3);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
 
 .feature-icon {
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   border: 0.5px solid var(--border2);
   background: var(--bg3);
@@ -467,7 +570,11 @@ section {
   margin-bottom: 16px;
 }
 
-.feature-icon svg { width: 16px; height: 16px; color: var(--muted); }
+.feature-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+}
 
 .feature-card h3 {
   font-size: 14.5px;
@@ -514,12 +621,17 @@ section {
   margin-bottom: 6px;
 }
 
-.trust-label { font-size: 13px; color: var(--muted); }
+.trust-label {
+  font-size: 13px;
+  color: var(--muted);
+}
 
 
 /* CHANGELOG */
 
-#changelog { scroll-margin-top: 80px; }
+#changelog {
+  scroll-margin-top: 80px;
+}
 
 .changelog-list {
   display: flex;
@@ -536,7 +648,9 @@ section {
   animation: fadeUp 0.5s ease both;
 }
 
-.changelog-entry:first-child { border-top: 0.5px solid var(--border); }
+.changelog-entry:first-child {
+  border-top: 0.5px solid var(--border);
+}
 
 .cl-date {
   font-size: 12.5px;
@@ -561,10 +675,25 @@ section {
   letter-spacing: 0.02em;
 }
 
-.tag-new     { background: rgba(34, 197, 94, 0.12);  color: #4ade80; }
-.tag-fix     { background: rgba(234, 179, 8, 0.12);  color: #fbbf24; }
-.tag-break   { background: rgba(239, 68, 68, 0.12);  color: #f87171; }
-.tag-improve { background: rgba(59, 130, 246, 0.12); color: #60a5fa; }
+.tag-new {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+}
+
+.tag-fix {
+  background: rgba(234, 179, 8, 0.12);
+  color: #fbbf24;
+}
+
+.tag-break {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+}
+
+.tag-improve {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+}
 
 .cl-title {
   font-size: 15px;
@@ -602,11 +731,13 @@ section {
 }
 
 
-/* CREDITS */
+/* DETAILS */
 
-#credits { scroll-margin-top: 80px; }
+#details {
+  scroll-margin-top: 80px;
+}
 
-.credits-grid {
+.details-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 12px;
@@ -627,7 +758,8 @@ section {
 }
 
 .credit-avatar {
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--bg3);
   border: 0.5px solid var(--border2);
@@ -641,8 +773,16 @@ section {
   letter-spacing: -0.02em;
 }
 
-.credit-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.credit-role { font-size: 12.5px; color: var(--muted); }
+.credit-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.credit-role {
+  font-size: 12.5px;
+  color: var(--muted);
+}
 
 
 /* FOOTER */
@@ -665,7 +805,11 @@ footer .footer-brand {
   color: var(--muted);
 }
 
-footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
+footer .footer-brand svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+}
 
 .footer-links {
   display: flex;
@@ -680,7 +824,9 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   transition: color 0.15s;
 }
 
-.footer-links a:hover { color: var(--text); }
+.footer-links a:hover {
+  color: var(--text);
+}
 
 
 /* SCROLL REVEAL */
@@ -714,7 +860,10 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   transition: opacity 0.2s;
 }
 
-.modal-overlay.open { opacity: 1; pointer-events: auto; }
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .modal {
   background: var(--bg2);
@@ -728,10 +877,23 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   position: relative;
 }
 
-.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1);
+}
 
-.modal h2 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
-.modal p { font-size: 14px; color: var(--muted); margin-bottom: 22px; line-height: 1.6; }
+.modal h2 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.modal p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
 
 .modal-options {
   display: flex;
@@ -758,15 +920,35 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   background: rgba(255, 255, 255, 0.04);
 }
 
-.dl-option-icon { font-size: 22px; flex-shrink: 0; }
-.dl-option-info { flex: 1; }
-.dl-option-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-.dl-option-desc { font-size: 12px; color: var(--muted); }
-.dl-option-arrow { color: var(--muted); font-size: 16px; }
+.dl-option-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.dl-option-info {
+  flex: 1;
+}
+
+.dl-option-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.dl-option-desc {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.dl-option-arrow {
+  color: var(--muted);
+  font-size: 16px;
+}
 
 .modal-close {
   position: absolute;
-  top: 16px; right: 16px;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
   color: var(--muted);
@@ -776,7 +958,9 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   transition: color 0.15s;
 }
 
-.modal-close:hover { color: var(--text); }
+.modal-close:hover {
+  color: var(--text);
+}
 
 
 /* SCAN ANIMATION */
@@ -824,21 +1008,40 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   transition: width 0s;
 }
 
-.scan-fill.animating { transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.scan-fill.animating {
+  transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-.c1 { background: #3b82f6; }
-.c2 { background: #8b5cf6; }
-.c3 { background: #22c55e; }
-.c4 { background: #f59e0b; }
-.c5 { background: #ec4899; }
-.c6 { background: #14b8a6; }
+.c1 {
+  background: #3b82f6;
+}
+
+.c2 {
+  background: #8b5cf6;
+}
+
+.c3 {
+  background: #22c55e;
+}
+
+.c4 {
+  background: #f59e0b;
+}
+
+.c5 {
+  background: #ec4899;
+}
+
+.c6 {
+  background: #14b8a6;
+}
 
 .scan-pct {
   font-size: 12px;
   color: var(--muted);
-  width: 36px;
+  width: 72px;
   text-align: right;
-  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .scan-status {
@@ -851,14 +1054,19 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
 }
 
 .scan-spinner {
-  width: 14px; height: 14px;
+  width: 14px;
+  height: 14px;
   border: 1.5px solid var(--border2);
   border-top-color: var(--blue);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 
 /* PIPELINE FLOW */
@@ -872,7 +1080,9 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   scrollbar-width: none;
 }
 
-.pipeline::-webkit-scrollbar { display: none; }
+.pipeline::-webkit-scrollbar {
+  display: none;
+}
 
 .pipe-step {
   flex-shrink: 0;
@@ -887,10 +1097,14 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.pipe-step.lit { opacity: 1; transform: translateY(0); }
+.pipe-step.lit {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .pipe-dot {
-  width: 32px; height: 32px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 0.5px solid var(--border2);
   background: var(--bg3);
@@ -920,7 +1134,9 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   z-index: 0;
 }
 
-.pipe-step:last-child .pipe-line { display: none; }
+.pipe-step:last-child .pipe-line {
+  display: none;
+}
 
 .pipe-label {
   margin-top: 10px;
@@ -931,18 +1147,27 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   transition: color 0.3s;
 }
 
-.pipe-step.lit .pipe-label { color: var(--accent); }
+.pipe-step.lit .pipe-label {
+  color: var(--accent);
+}
 
 
 /* MOBILE */
 
 @media (max-width: 640px) {
-  nav { padding: 0 14px; }
+  nav {
+    padding: 0 14px;
+  }
 
   .nav-divider,
-  .nav-links { display: none; }
+  .nav-links {
+    display: none;
+  }
 
-  .btn-download { padding: 7px 12px; font-size: 13px; }
+  .btn-download {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
 
   .hero-cta {
     flex-direction: column;
@@ -956,13 +1181,41 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
     justify-content: center;
   }
 
-  .changelog-entry { grid-template-columns: 1fr; }
-  .cl-date { margin-bottom: 6px; }
+  .changelog-entry {
+    grid-template-columns: 1fr;
+  }
 
-  .pipeline { padding: 20px 0; }
-  .pipe-step { width: 80px; }
+  .cl-date {
+    margin-bottom: 6px;
+  }
+
+  .pipeline {
+    padding: 20px 0;
+    overflow: hidden;
+  }
+
+  .pipe-step {
+    width: auto;
+    min-width: 0;
+    flex-shrink: 1;
+    flex: 1 1 0;
+  }
+
+  .pipe-label {
+    font-size: 10px;
+    padding: 0 2px;
+  }
+
+  .pipe-dot {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .pipe-line {
+    top: 12px;
+  }
 }
-
   </style>
 </head>
 <body>
@@ -984,13 +1237,13 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
           </a>
         </li>
         <li>
-          <a href="#credits">
+          <a href="#details">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"
               xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="5.5" r="2.5" />
-              <path d="M3 13.5c0-2.5 2.2-4 5-4s5 1.5 5 4" stroke-linecap="round" />
+              <rect x="3" y="3" width="10" height="10" rx="2" />
+              <path d="M8 6.5v4M8 5.5v0" stroke-linecap="round" />
             </svg>
-            Credits
+            Details
           </a>
         </li>
       </ul>
@@ -1013,12 +1266,14 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
       <div class="orb orb-3"></div>
     </div>
   
-    <h1><span>Every browser.</span><br>One archive.</h1>
-    <p>Atlas backs up profiles from 250+ browsers — nightly builds, obscure forks, UWP packages, Flatpak, Snap, and beyond. Fully offline. Fully yours.</p>
+    <h1><span>All Browsers.</span><br>One Backup.</h1>
+    <p>Atlas backs up profiles from 250+ browsers — nightly builds, obscure forks, UWP packages, Flatpak, Snap, and
+      beyond. Fully offline. Fully yours.</p>
   
     <div class="hero-cta">
       <button class="btn-primary" onclick="openDownload()">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg"
+          style="width:16px;height:16px">
           <path d="M8 2v9M5 8l3 3 3-3M2 13h12" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         Download Atlas
@@ -1034,7 +1289,8 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
   <section class="reveal">
     <div class="section-label">Designed to last</div>
     <h2 class="section-title">Stable by architecture</h2>
-    <p class="section-sub">Every operation is validated before it runs. No hidden writes. No surprises. Just reliable archiving.</p>
+    <p class="section-sub">Every operation is validated before it runs. No hidden writes or surprises. Just reliable
+      archiving.</p>
   
     <div class="features-grid">
       <div class="feature-card">
@@ -1054,7 +1310,7 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
           </svg>
         </div>
         <h3>Read-only browser access</h3>
-        <p>Profiles are never modified. Zero writes to any browser directory, ever.</p>
+        <p>Zero writes to any browser directory, ever.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
@@ -1074,7 +1330,9 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
           </svg>
         </div>
         <h3>Atomic archive writes</h3>
-        <p>Archives write to a <code style="font-size:12px;background:var(--bg3);padding:1px 5px;border-radius:4px">.zip.tmp</code> file, then atomically rename on success. No corrupt partials.</p>
+        <p>Archives write to a <code
+            style="font-size:12px;background:var(--bg3);padding:1px 5px;border-radius:4px">.zip.tmp</code> file, then
+          atomically rename on success. No corrupt partials.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
@@ -1093,7 +1351,7 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
           </svg>
         </div>
         <h3>Cooperative cancellation</h3>
-        <p>Cancel mid-operation at any stage. Temp files are cleaned up, no state is left behind.</p>
+        <p>Cancel mid-operation at any point of the backup.</p>
       </div>
     </div>
   </section>
@@ -1200,41 +1458,40 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
     </div>
   </section>
 
-  <section id="credits" class="reveal">
-    <div class="section-label">The people</div>
-    <h2 class="section-title">Credits</h2>
-    <p class="section-sub">Atlas is built and maintained with care.</p>
-    <div class="credits-grid">
+  <section id="details" class="reveal">
+    <h2 class="section-title">Built with</h2>
+    <p class="section-sub">Zero external dependencies. Just Qt, Python, and the standard library.</p>
+    <div class="details-grid">
       <div class="credit-card">
-        <div class="credit-avatar">AT</div>
-        <div class="credit-name">Core Team</div>
-        <div class="credit-role">Architecture &amp; pipeline design</div>
+        <div class="credit-avatar">⚡</div>
+        <div class="credit-name">Qt / PyQt</div>
+        <div class="credit-role">Native cross-platform UI framework</div>
       </div>
       <div class="credit-card">
-        <div class="credit-avatar">OS</div>
-        <div class="credit-name">Open Source</div>
-        <div class="credit-role">PyQt, Python stdlib, zipfile</div>
+        <div class="credit-avatar">🔧</div>
+        <div class="credit-name">Python</div>
+        <div class="credit-role">Core runtime &amp; scripting engine</div>
       </div>
       <div class="credit-card">
-        <div class="credit-avatar">QT</div>
-        <div class="credit-name">Qt Project</div>
-        <div class="credit-role">Cross-platform UI framework</div>
+        <div class="credit-avatar">✦</div>
+        <div class="credit-name">Zero Dependencies</div>
+        <div class="credit-role">No pip installs, no node_modules</div>
       </div>
       <div class="credit-card">
-        <div class="credit-avatar">β</div>
-        <div class="credit-name">Beta Testers</div>
-        <div class="credit-role">Breaking things before you do</div>
+        <div class="credit-avatar">⬡</div>
+        <div class="credit-name">stdlib only</div>
+        <div class="credit-role">zipfile, os, shutil — nothing extra</div>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-brand">
-      Atlas · Browser archiving, perfected.
+      Atlas.
     </div>
     <ul class="footer-links">
       <li><a href="#changelog">Changelog</a></li>
-      <li><a href="#credits">Credits</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#" onclick="openDownload()">Download</a></li>
     </ul>
   </footer>
@@ -1249,7 +1506,7 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
           <img src="assets/svg/Windows.svg" class="dl-option-icon" width="24" height="24" alt="Windows">
           <div class="dl-option-info">
             <div class="dl-option-name">Windows</div>
-            <div class="dl-option-desc">x64 · Windows XP+ · Installer or portable .exe</div>
+            <div class="dl-option-desc">Windows XP+ · Installer or portable .exe</div>
           </div>
           <span class="dl-option-arrow">↓</span>
         </a>
@@ -1257,7 +1514,7 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
           <img src="assets/svg/Linux.svg" class="dl-option-icon" width="24" height="24" alt="Linux">
           <div class="dl-option-info">
             <div class="dl-option-name">Linux</div>
-            <div class="dl-option-desc">Flatpak · Snap · AppImage · AUR</div>
+            <div class="dl-option-desc">AppImage</div>
           </div>
           <span class="dl-option-arrow">↓</span>
         </a>
@@ -1273,11 +1530,11 @@ footer .footer-brand svg { width: 18px; height: 18px; opacity: 0.5; }
 const BROWSERS = [
   'Chrome', 'Firefox', 'Safari', 'Edge', 'Opera', 'Brave', 'Vivaldi', 'Waterfox',
   'Librewolf', 'Pale Moon', 'Basilisk', 'SeaMonkey', 'Flock', 'Spyglass Mosaic',
-  'NCSA Mosaic', 'WWW Browser', 'Midori', 'Falkon', 'Konqueror', 'Epiphany',
-  'Min', 'Nyxt', 'qutebrowser', 'Lagrange', 'Dillo', 'NetSurf', 'Links2',
-  'Chrome Dev', 'Firefox Nightly', 'Edge Canary', 'Opera GX', 'Arc',
-  'Thorium', 'Floorp', 'Mercury', 'IceCat', 'Tor Browser', 'Mullvad',
-  'Chrome Beta', 'Edge Beta', 'Firefox Beta', 'Orion', 'Chromium',
+  'NCSA Mosaic', 'Midori', 'Falkon', 'Konqueror', 'Epiphany',
+  'Min', 'Nyxt', 'qutebrowser', 'Floorp', 'Dillo', 'NetSurf', 'Netscape',
+  'LibreWolf', 'Palemoon', 'Edge', 'Opera GX', 'Arc',
+  'Thorium', 'Floorp', 'Mercury', 'IceCat', 'AOL', 'Mullvad',
+  'Baidu', 'Maxthon', 'Opera GX', 'Orion', 'DuckDuckGo',
 ];
 
 
@@ -1286,10 +1543,18 @@ const BROWSERS = [
 function buildTicker() {
   const t = document.getElementById('ticker');
   if (!t) return;
-  const doubled = [...BROWSERS, ...BROWSERS];
-  t.innerHTML = doubled.map(b =>
-    `<div class="ticker-item"><span class="ticker-dot"></span>${b}</div>`
-  ).join('');
+  const frag = document.createDocumentFragment();
+  const list = [...BROWSERS, ...BROWSERS];
+  for (let i = 0; i < list.length; i++) {
+    const el = document.createElement('div');
+    el.className = 'ticker-item';
+    const dot = document.createElement('span');
+    dot.className = 'ticker-dot';
+    el.appendChild(dot);
+    el.appendChild(document.createTextNode(list[i]));
+    frag.appendChild(el);
+  }
+  t.appendChild(frag);
 }
 
 
@@ -1297,12 +1562,12 @@ function buildTicker() {
 
 function buildScanBars() {
   const browsers = [
-    { name: 'Chrome',  color: 'c1' },
-    { name: 'Firefox', color: 'c2' },
-    { name: 'Brave',   color: 'c3' },
-    { name: 'Mosaic',  color: 'c4' },
-    { name: 'Flock',   color: 'c5' },
-    { name: 'Vivaldi', color: 'c6' },
+    { name: 'Chrome', color: 'c1', profiles: 3, size: '1.2 GB', val: 1200 },
+    { name: 'Firefox', color: 'c2', profiles: 2, size: '840 MB', val: 840 },
+    { name: 'Brave', color: 'c3', profiles: 1, size: '620 MB', val: 620 },
+    { name: 'Mosaic', color: 'c4', profiles: 1, size: '4 MB', val: 4 },
+    { name: 'Flock', color: 'c5', profiles: 2, size: '210 MB', val: 210 },
+    { name: 'Vivaldi', color: 'c6', profiles: 1, size: '380 MB', val: 380 },
   ];
   const wrap = document.getElementById('scanBars');
   if (!wrap) return;
@@ -1312,34 +1577,41 @@ function buildScanBars() {
       <div class="scan-track">
         <div class="scan-fill ${b.color}" id="sf${i}"></div>
       </div>
-      <div class="scan-pct" id="sp${i}">0%</div>
+      <div class="scan-pct" id="sp${i}">—</div>
     </div>
   `).join('');
+  wrap._meta = browsers;
 }
 
 function animateScan() {
-  const targets = [92, 87, 100, 64, 78, 95];
-  targets.forEach((t, i) => {
+  const wrap = document.getElementById('scanBars');
+  const browsers = wrap && wrap._meta;
+  if (!browsers) return;
+  const speeds = [1.4, 1.6, 1.2, 0.8, 1.5, 1.3];
+  const maxVal = Math.max(...browsers.map(b => b.val || 100));
+  browsers.forEach((b, i) => {
     const fill = document.getElementById(`sf${i}`);
-    const pct  = document.getElementById(`sp${i}`);
+    const label = document.getElementById(`sp${i}`);
     if (!fill) return;
+    const targetPct = b.val ? Math.max(2, (b.val / maxVal) * 100) : 100;
     setTimeout(() => {
       fill.classList.add('animating');
-      fill.style.width = t + '%';
-      let cur = 0;
-      const interval = setInterval(() => {
-        cur = Math.min(cur + Math.ceil(t / 30), t);
-        pct.textContent = cur + '%';
-        if (cur >= t) clearInterval(interval);
-      }, 60);
-    }, i * 260);
+      fill.style.width = targetPct + '%';
+      fill.style.transitionDuration = speeds[i] + 's';
+      label.textContent = b.profiles + (b.profiles === 1 ? ' profile' : ' profiles');
+      setTimeout(() => {
+        label.textContent = b.size;
+      }, speeds[i] * 1000);
+    }, i * 220);
   });
+  const total = browsers.reduce((s, b) => s + b.profiles, 0);
+  const finishMs = (browsers.length - 1) * 220 + Math.max(...speeds) * 1000 + 200;
   setTimeout(() => {
     const statusText = document.getElementById('scanStatusText');
     const spinner = document.querySelector('.scan-spinner');
-    if (statusText) statusText.textContent = '6 browsers · 34 profiles found · 2.1 GB estimated';
+    if (statusText) statusText.textContent = browsers.length + ' browsers · ' + total + ' profiles · ready to archive';
     if (spinner) spinner.style.borderTopColor = '#22c55e';
-  }, 2600);
+  }, finishMs);
 }
 
 

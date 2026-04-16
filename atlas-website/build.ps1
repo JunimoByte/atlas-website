@@ -15,7 +15,7 @@ $Partials = @(
     "scan",
     "trust",
     "changelog",
-    "credits",
+    "details",
     "footer",
     "modal"
 )

@@ -5,11 +5,11 @@
 const BROWSERS = [
   'Chrome', 'Firefox', 'Safari', 'Edge', 'Opera', 'Brave', 'Vivaldi', 'Waterfox',
   'Librewolf', 'Pale Moon', 'Basilisk', 'SeaMonkey', 'Flock', 'Spyglass Mosaic',
-  'NCSA Mosaic', 'WWW Browser', 'Midori', 'Falkon', 'Konqueror', 'Epiphany',
-  'Min', 'Nyxt', 'qutebrowser', 'Lagrange', 'Dillo', 'NetSurf', 'Links2',
-  'Chrome Dev', 'Firefox Nightly', 'Edge Canary', 'Opera GX', 'Arc',
-  'Thorium', 'Floorp', 'Mercury', 'IceCat', 'Tor Browser', 'Mullvad',
-  'Chrome Beta', 'Edge Beta', 'Firefox Beta', 'Orion', 'Chromium',
+  'NCSA Mosaic', 'Midori', 'Falkon', 'Konqueror', 'Epiphany',
+  'Min', 'Nyxt', 'qutebrowser', 'Floorp', 'Dillo', 'NetSurf', 'Netscape',
+  'LibreWolf', 'Palemoon', 'Edge', 'Opera GX', 'Arc',
+  'Thorium', 'Floorp', 'Mercury', 'IceCat', 'AOL', 'Mullvad',
+  'Baidu', 'Maxthon', 'Opera GX', 'Orion', 'DuckDuckGo',
 ];
 
 
@@ -18,10 +18,18 @@ const BROWSERS = [
 function buildTicker() {
   const t = document.getElementById('ticker');
   if (!t) return;
-  const doubled = [...BROWSERS, ...BROWSERS];
-  t.innerHTML = doubled.map(b =>
-    `<div class="ticker-item"><span class="ticker-dot"></span>${b}</div>`
-  ).join('');
+  const frag = document.createDocumentFragment();
+  const list = [...BROWSERS, ...BROWSERS];
+  for (let i = 0; i < list.length; i++) {
+    const el = document.createElement('div');
+    el.className = 'ticker-item';
+    const dot = document.createElement('span');
+    dot.className = 'ticker-dot';
+    el.appendChild(dot);
+    el.appendChild(document.createTextNode(list[i]));
+    frag.appendChild(el);
+  }
+  t.appendChild(frag);
 }
 
 
@@ -29,12 +37,12 @@ function buildTicker() {
 
 function buildScanBars() {
   const browsers = [
-    { name: 'Chrome',  color: 'c1' },
-    { name: 'Firefox', color: 'c2' },
-    { name: 'Brave',   color: 'c3' },
-    { name: 'Mosaic',  color: 'c4' },
-    { name: 'Flock',   color: 'c5' },
-    { name: 'Vivaldi', color: 'c6' },
+    { name: 'Chrome', color: 'c1', profiles: 3, size: '1.2 GB', val: 1200 },
+    { name: 'Firefox', color: 'c2', profiles: 2, size: '840 MB', val: 840 },
+    { name: 'Brave', color: 'c3', profiles: 1, size: '620 MB', val: 620 },
+    { name: 'Mosaic', color: 'c4', profiles: 1, size: '4 MB', val: 4 },
+    { name: 'Flock', color: 'c5', profiles: 2, size: '210 MB', val: 210 },
+    { name: 'Vivaldi', color: 'c6', profiles: 1, size: '380 MB', val: 380 },
   ];
   const wrap = document.getElementById('scanBars');
   if (!wrap) return;
@@ -44,34 +52,41 @@ function buildScanBars() {
       <div class="scan-track">
         <div class="scan-fill ${b.color}" id="sf${i}"></div>
       </div>
-      <div class="scan-pct" id="sp${i}">0%</div>
+      <div class="scan-pct" id="sp${i}">—</div>
     </div>
   `).join('');
+  wrap._meta = browsers;
 }
 
 function animateScan() {
-  const targets = [92, 87, 100, 64, 78, 95];
-  targets.forEach((t, i) => {
+  const wrap = document.getElementById('scanBars');
+  const browsers = wrap && wrap._meta;
+  if (!browsers) return;
+  const speeds = [1.4, 1.6, 1.2, 0.8, 1.5, 1.3];
+  const maxVal = Math.max(...browsers.map(b => b.val || 100));
+  browsers.forEach((b, i) => {
     const fill = document.getElementById(`sf${i}`);
-    const pct  = document.getElementById(`sp${i}`);
+    const label = document.getElementById(`sp${i}`);
     if (!fill) return;
+    const targetPct = b.val ? Math.max(2, (b.val / maxVal) * 100) : 100;
     setTimeout(() => {
       fill.classList.add('animating');
-      fill.style.width = t + '%';
-      let cur = 0;
-      const interval = setInterval(() => {
-        cur = Math.min(cur + Math.ceil(t / 30), t);
-        pct.textContent = cur + '%';
-        if (cur >= t) clearInterval(interval);
-      }, 60);
-    }, i * 260);
+      fill.style.width = targetPct + '%';
+      fill.style.transitionDuration = speeds[i] + 's';
+      label.textContent = b.profiles + (b.profiles === 1 ? ' profile' : ' profiles');
+      setTimeout(() => {
+        label.textContent = b.size;
+      }, speeds[i] * 1000);
+    }, i * 220);
   });
+  const total = browsers.reduce((s, b) => s + b.profiles, 0);
+  const finishMs = (browsers.length - 1) * 220 + Math.max(...speeds) * 1000 + 200;
   setTimeout(() => {
     const statusText = document.getElementById('scanStatusText');
     const spinner = document.querySelector('.scan-spinner');
-    if (statusText) statusText.textContent = '6 browsers · 34 profiles found · 2.1 GB estimated';
+    if (statusText) statusText.textContent = browsers.length + ' browsers · ' + total + ' profiles · ready to archive';
     if (spinner) spinner.style.borderTopColor = '#22c55e';
-  }, 2600);
+  }, finishMs);
 }
 
 

@@ -26,7 +26,7 @@ const PARTIALS = [
   'scan',
   'trust',
   'changelog',
-  'credits',
+  'details',
   'footer',
   'modal',
 ];
