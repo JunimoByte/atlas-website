@@ -1,0 +1,43 @@
+<section class="reveal">
+  <div class="section-label">Execution model</div>
+  <h2 class="section-title">Ordered. Validated. Safe.</h2>
+  <p class="section-sub">The pipeline never touches disk until all prior checks pass. Each step is independently cancellable.</p>
+
+  <div class="pipeline" id="pipeline">
+    <div class="pipe-step" data-delay="0">
+      <div class="pipe-dot">①</div>
+      <div class="pipe-line"></div>
+      <div class="pipe-label">Permission<br>check</div>
+    </div>
+    <div class="pipe-step" data-delay="150">
+      <div class="pipe-dot">②</div>
+      <div class="pipe-line"></div>
+      <div class="pipe-label">Config<br>verify</div>
+    </div>
+    <div class="pipe-step" data-delay="300">
+      <div class="pipe-dot">③</div>
+      <div class="pipe-line"></div>
+      <div class="pipe-label">Scan<br>profiles</div>
+    </div>
+    <div class="pipe-step" data-delay="450">
+      <div class="pipe-dot">④</div>
+      <div class="pipe-line"></div>
+      <div class="pipe-label">Estimate<br>size</div>
+    </div>
+    <div class="pipe-step" data-delay="600">
+      <div class="pipe-dot">⑤</div>
+      <div class="pipe-line"></div>
+      <div class="pipe-label">Disk space<br>check</div>
+    </div>
+    <div class="pipe-step" data-delay="750">
+      <div class="pipe-dot">⑥</div>
+      <div class="pipe-line"></div>
+      <div class="pipe-label">Archive<br>creation</div>
+    </div>
+    <div class="pipe-step" data-delay="900">
+      <div class="pipe-dot">⑦</div>
+      <div class="pipe-line"></div>
+      <div class="pipe-label">Done ✓</div>
+    </div>
+  </div>
+</section>
