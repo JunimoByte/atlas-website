@@ -1,0 +1,21 @@
+{
+    "name": "atlas-website",
+    "version": "1.0.0",
+    "description": "Atlas helps users back up browser data locally.",
+    "private": true,
+    "author": "JunimoByte",
+    "license": "MIT",
+    "keywords": [
+        "atlas",
+        "backup",
+        "browser",
+        "data-management",
+        "offline-first"
+    ],
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "scripts": {
+        "build": "node atlas-website/build.js"
+    }
+}
