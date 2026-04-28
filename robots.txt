@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://atlas.com/sitemap.xml
+Sitemap: https://github.com/JunimoByte/atlas-website/sitemap.xml
