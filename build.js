@@ -30,7 +30,6 @@ const PARTIALS = [
   'changelog',
   'details',
   'footer',
-  'modal',
 ];
 
 // Read a file with error handling

@@ -131,21 +131,6 @@ function animateScan() {
   });
 }
 
-
-// Modal
-
-function openDownload() { $('dlModal')?.classList.add('open'); }
-function closeDownload() { $('dlModal')?.classList.remove('open'); }
-
-function closeIfOverlay(e) {
-  if (e.target === $('dlModal')) closeDownload();
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeDownload();
-});
-
-
 // Shared observer
 
 const io = new IntersectionObserver((entries, obs) => {

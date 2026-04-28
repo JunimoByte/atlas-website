@@ -1161,8 +1161,8 @@ footer .footer-brand svg {
   position: absolute;
   top: 15px;
   left: calc(50% + 16px);
-  right: calc(-50% + 16px);
-  height: 0.5px;
+  width: calc(100% - 32px);
+  height: 1px;
   background: var(--border2);
   z-index: 0;
 }
