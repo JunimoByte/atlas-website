@@ -1,42 +1,69 @@
 # Atlas Website
 
-## About
+Source code for the Atlas static landing site. The site is built from partials, styles, and scripts assembled into a single `index.html` via a Node.js build script.
 
-Atlas helps users back up browser data locally, providing a simple offline-first interface for managing and exporting profiles.
-
-This repository contains the source code for the Atlas single-page static landing site.
+---
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-- Node.js (build tool)
+- HTML5, CSS3, Vanilla JavaScript
+- Node.js (build tooling only)
+- [`clean-css`](https://github.com/clean-css/clean-css) — CSS minification
+- [`terser`](https://github.com/terser/terser) — JavaScript minification
 
-## Architecture
+---
 
-For easier development, the layout is broken down into partials, JavaScript, and CSS files, which are compiled into a single `index.html` via the provided build script.
+## Project Structure
 
-The source files are located in the `atlas-website/` directory:
-- **`css/`** - Contains the CSS styles (`style.css`).
-- **`js/`** - Contains the main JavaScript logic (`main.js`).
-- **`partials/`** - Contains the individual HTML sections of the website (e.g. `hero.html`, `footer.html`, `features.html`, etc.).
+```
+atlas-website/
+  css/            Global stylesheet
+  js/             Main application script
+  partials/       HTML sections (hero, nav, footer, etc.)
+  assets/
+    ico/          Favicon
+    og/           Open Graph image
+  build.js        Build script
+  index.html      Generated output — do not edit directly
+  manifest.json   Web app manifest (PWA)
+  robots.txt      Search engine directives
+  sitemap.xml     Site map
+```
 
-## Building the Website
+---
 
-To assemble the partials, styles, and scripts into the final `index.html` file, run the included Node.js build script.
+## Getting Started
 
-### Node.js
+**Prerequisites:** Node.js 16 or later.
 
-No dependencies are required—only Node.js. Run the standard build command via npm:
+Install dependencies (only required for minification):
+
+```bash
+npm install
+```
+
+Build the site:
+
 ```bash
 npm run build
 ```
 
-The build script composes all partials, styles, and scripts into a single optimized `index.html` file in the `atlas-website` directory.
+The build script assembles all partials, minifies CSS and JavaScript, and writes the result to `index.html`.
+
+---
 
 ## Development Workflow
 
-1. Edit your CSS, JavaScript, or any of the HTML partials.
-2. Run the build script (`npm run build`).
-3. Open `atlas-website/index.html` in your browser to check the changes.
+1. Edit files in `css/`, `js/`, or `partials/`.
+2. Run `npm run build`.
+3. Open `index.html` in a browser to review changes.
+
+> **Note:** `index.html` is generated output. Any direct edits will be overwritten on the next build. Make changes in the source files only.
+
+---
+
+## Deployment
+
+The site is hosted on GitHub Pages from the repository root. Push to `main` to deploy.
+
+Live: [junimobyte.github.io/atlas-website](https://junimobyte.github.io/atlas-website/)

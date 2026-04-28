@@ -1,17 +1,19 @@
 /** Build Script
  *
- *  Assembles partials into a single index.html.
+ *  Assembles partials into a single index.html with minified CSS and JS.
  *
  *  Usage:
  *    node build.js
  *
- *  The output is written to ./index.html.
+ *  Output is written to ./index.html.
  *  Edit partials in ./partials/, styles in ./css/,
  *  and scripts in ./js/ — then rebuild.
  */
 
 const fs = require('fs');
 const path = require('path');
+const CleanCSS = require('clean-css');
+const { minify } = require('terser');
 
 const ROOT = __dirname;
 
@@ -42,6 +44,30 @@ function read(filePath) {
   return fs.readFileSync(abs, 'utf-8');
 }
 
+// Minify CSS
+
+function minifyCSS(source) {
+  const result = new CleanCSS({ level: 2 }).minify(source);
+  if (result.errors.length) {
+    console.error('[WARN] CSS minification errors:', result.errors);
+  }
+  return result.styles;
+}
+
+// Minify JS (returns a Promise)
+
+async function minifyJS(source) {
+  const result = await minify(source, {
+    compress: { drop_console: false },
+    mangle: true,
+  });
+  if (!result.code) {
+    console.error('[WARN] JS minification produced no output, using source.');
+    return source;
+  }
+  return result.code;
+}
+
 // Assemble partials
 
 function buildBody() {
@@ -54,10 +80,13 @@ function buildBody() {
 
 // Build the full page
 
-function build() {
-  const css = read('css/style.css');
-  const js = read('js/main.js');
+async function build() {
+  const rawCSS = read('css/style.css');
+  const rawJS = read('js/main.js');
   const body = buildBody();
+
+  const css = minifyCSS(rawCSS);
+  const js = await minifyJS(rawJS);
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -87,17 +116,13 @@ function build() {
   <link rel="icon" href="assets/ico/Atlas.ico" type="image/x-icon" />
   <link rel="author" href="humans.txt" />
 
-  <style>
-${css}
-  </style>
+  <style>${css}</style>
 </head>
 <body>
 
 ${body}
 
-  <script>
-${js}
-  </script>
+  <script>${js}</script>
 </body>
 </html>
 `;
@@ -106,8 +131,18 @@ ${js}
   fs.writeFileSync(outPath, html, 'utf-8');
 
   const sizeKB = (Buffer.byteLength(html, 'utf-8') / 1024).toFixed(1);
+  const rawCSSKB = (Buffer.byteLength(rawCSS, 'utf-8') / 1024).toFixed(1);
+  const minCSSKB = (Buffer.byteLength(css, 'utf-8') / 1024).toFixed(1);
+  const rawJSKB = (Buffer.byteLength(rawJS, 'utf-8') / 1024).toFixed(1);
+  const minJSKB = (Buffer.byteLength(js, 'utf-8') / 1024).toFixed(1);
+
   console.log(`[OK] Built index.html (${sizeKB} KB)`);
   console.log(`     ${PARTIALS.length} partials assembled`);
+  console.log(`     CSS  ${rawCSSKB} KB -> ${minCSSKB} KB`);
+  console.log(`     JS   ${rawJSKB} KB -> ${minJSKB} KB`);
 }
 
-build();
+build().catch(err => {
+  console.error('[ERROR]', err.message);
+  process.exit(1);
+});
