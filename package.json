@@ -16,6 +16,6 @@
         "node": ">=16.0.0"
     },
     "scripts": {
-        "build": "node atlas-website/build.js"
+        "build": "node build.js"
     }
 }

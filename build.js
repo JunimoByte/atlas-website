@@ -82,6 +82,7 @@ function build() {
   <meta property="twitter:image" content="https://atlas.com/assets/og-image.png" />
 
   <meta name="theme-color" content="#0a0a0b" />
+  <link rel="icon" href="assets/ico/Atlas.ico" type="image/x-icon" />
   <link rel="author" href="humans.txt" />
 
   <style>
