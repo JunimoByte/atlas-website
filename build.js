@@ -69,19 +69,19 @@ function build() {
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://github.com/JunimoByte/atlas-website" />
+  <meta property="og:url" content="https://junimobyte.github.io/atlas-website/" />
   <meta property="og:title" content="Atlas — Offline Browser Backups" />
   <meta property="og:description" content="Atlas backs up browser profiles. Cross-platform, fully offline, fully yours." />
-  <meta property="og:image" content="https://github.com/JunimoByte/atlas-website/assets/og/Image.jpg" />
-  <link rel="canonical" href="https://github.com/JunimoByte/atlas-website" />
+  <meta property="og:image" content="https://junimobyte.github.io/atlas-website/assets/og/Image.jpg" />
+  <link rel="canonical" href="https://junimobyte.github.io/atlas-website/" />
   <link rel="manifest" href="manifest.json" />
 
   <!-- X (Twitter) -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://github.com/JunimoByte/atlas-website" />
+  <meta property="twitter:url" content="https://junimobyte.github.io/atlas-website/" />
   <meta property="twitter:title" content="Atlas — Offline Browser Backups" />
   <meta property="twitter:description" content="Atlas backs up browser profiles. Cross-platform, fully offline, fully yours." />
-  <meta property="twitter:image" content="https://github.com/JunimoByte/atlas-website/assets/og/Image.jpg" />
+  <meta property="twitter:image" content="https://junimobyte.github.io/atlas-website/assets/og/Image.jpg" />
 
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="icon" href="assets/ico/Atlas.ico" type="image/x-icon" />
