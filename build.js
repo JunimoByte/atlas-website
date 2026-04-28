@@ -85,9 +85,23 @@ async function build() {
   const rawJS = read('js/main.js');
   const body = buildBody();
 
-  const css = minifyCSS(rawCSS);
+  // Split CSS at the DEFERRED START marker
+  const splitMarker = '/* DEFERRED START */';
+  const splitIndex = rawCSS.indexOf(splitMarker);
+  if (splitIndex === -1) {
+    console.error('[ERROR] DEFERRED START marker not found in css/style.css');
+    process.exit(1);
+  }
+  const rawCritical = rawCSS.slice(0, splitIndex);
+  const rawDeferred = rawCSS.slice(splitIndex + splitMarker.length);
+
+  const critical = minifyCSS(rawCritical);
+  const deferred = minifyCSS(rawDeferred);
   const js = await minifyJS(rawJS);
 
+  // Write deferred CSS as a separate served file
+  const deferredOut = path.resolve(ROOT, 'css', 'atlas.min.css');
+  fs.writeFileSync(deferredOut, deferred, 'utf-8');
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +130,9 @@ async function build() {
   <link rel="icon" href="assets/ico/Atlas.ico" type="image/x-icon" />
   <link rel="author" href="humans.txt" />
 
-  <style>${css}</style>
+  <style>${critical}</style>
+  <link rel="preload" href="css/atlas.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="css/atlas.min.css" /></noscript>
 </head>
 <body>
 
@@ -132,13 +148,14 @@ ${body}
 
   const sizeKB = (Buffer.byteLength(html, 'utf-8') / 1024).toFixed(1);
   const rawCSSKB = (Buffer.byteLength(rawCSS, 'utf-8') / 1024).toFixed(1);
-  const minCSSKB = (Buffer.byteLength(css, 'utf-8') / 1024).toFixed(1);
+  const critKB = (Buffer.byteLength(critical, 'utf-8') / 1024).toFixed(1);
+  const defKB = (Buffer.byteLength(deferred, 'utf-8') / 1024).toFixed(1);
   const rawJSKB = (Buffer.byteLength(rawJS, 'utf-8') / 1024).toFixed(1);
   const minJSKB = (Buffer.byteLength(js, 'utf-8') / 1024).toFixed(1);
 
   console.log(`[OK] Built index.html (${sizeKB} KB)`);
   console.log(`     ${PARTIALS.length} partials assembled`);
-  console.log(`     CSS  ${rawCSSKB} KB -> ${minCSSKB} KB`);
+  console.log(`     CSS  ${rawCSSKB} KB total -> ${critKB} KB critical (inline) + ${defKB} KB deferred (css/atlas.min.css)`);
   console.log(`     JS   ${rawJSKB} KB -> ${minJSKB} KB`);
 }
 
