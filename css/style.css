@@ -10,7 +10,7 @@
 
 :root {
   --bg: #0a0a0c;
-  --bg2: #0e0e11;
+  --bg2: #101012;
   --bg3: #18181a;
   --border: rgba(255, 255, 255, 0.07);
   --border2: rgba(255, 255, 255, 0.12);
@@ -949,6 +949,12 @@ footer .footer-brand svg {
 .dl-option:hover {
   border-color: var(--border2);
   background: rgba(255, 255, 255, 0.04);
+}
+
+.dl-option.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .dl-option-icon {

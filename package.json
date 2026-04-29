@@ -1,6 +1,6 @@
 {
     "name": "atlas-website",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Atlas helps users back up browser data locally.",
     "private": true,
     "author": "JunimoByte",
