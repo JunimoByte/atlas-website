@@ -3,6 +3,6 @@
     Site: https://github.com/JunimoByte/atlas-website
 
 /* SITE */
-    Last update: 2026/04/27
+    Last update: 2026/08/10
     Standards: HTML5, CSS3, JavaScript
     Software: Vanilla, Node.js
