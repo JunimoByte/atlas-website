@@ -23,12 +23,14 @@ const PARTIALS = [
   'nav',
   'hero',
   'ticker',
+  'platforms',
   'features',
   'pipeline',
   'scan',
   'trust',
   'changelog',
   'details',
+  'ownership',
   'footer',
 ];
 
